@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse Number</title>
+</head>
+<body>
+    <script>
+        function reverseNum() {
+            const num = prompt("Enter a number:");
+            let temp = parseInt(num);
+            let rev = 0;
+
+            while (temp !== 0) {
+                let digit = temp % 10;
+                rev = rev * 10 + digit;
+                temp = Math.floor(temp / 10);
+            }
+            document.write("Number:"+num +"<br>");
+            
+            document.write("Reverse of Number: " + rev);
+        }
+
+        reverseNum();
+    </script>
+</body>
+</html>

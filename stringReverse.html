@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alphabetical Sort</title>
+</head>
+<body>
+    <script>
+        function sortStringAlphabetically(str) {
+            let chars = str.split('');
+
+            for (let i = 0; i < chars.length - 1; i++) {
+                for (let j = 0; j < chars.length - i - 1; j++) {
+                    if (chars[j] > chars[j + 1]) {
+                        // Swap characters
+                        let temp = chars[j];
+                        chars[j] = chars[j + 1];
+                        chars[j + 1] = temp;
+                    }
+                }
+            }
+
+            return chars.join('');
+        }
+
+        const input = prompt("Enter a string:");
+        const sorted = sortStringAlphabetically(input);
+
+        document.write("Original String: " + input + "<br>");
+        document.write("Alphabetically Sorted String: " + sorted);
+    </script>
+</body>
+</html>
