@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Operations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 100px;
+            background-color: #f0f4f8;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 400px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <form>
+        <label for="num1">First Number</label>
+        <input id="num1" type="number" required>
+
+        <label for="num2">Second Number</label>
+        <input id="num2" type="number" required>
+
+        <button type="button" onclick="multiply()">Multiply</button>
+        <button type="button" onclick="divide()">Divide</button>
+
+        <div id="result"></div>
+    </form>
+
+    <script>
+        function multiply() {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+
+                document.getElementById("result").textContent = "Multiplication of two numbers: " + (num1 * num2);
+            
+        }
+
+        function divide() {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+
+            if (!isNaN(num1) && !isNaN(num2)) {
+                if (num2 === 0 || num1 === 0) {
+                    document.getElementById("result").textContent = "Cannot divide by zero.";
+                    return;
+                }
+                const result = num1 > num2 ? num1 / num2 : num2 / num1;
+                document.getElementById("result").textContent = "Division result: " + result;
+            } else {
+                document.getElementById("result").textContent = "Please enter valid numbers.";
+            }
+        }
+    </script>
+
+</body>
+</html>
